@@ -2,23 +2,33 @@ import { Link } from "react-router"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
+import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from "@/components/ui/card"
 import { Separator } from "@/components/ui/separator"
 
-function LoginPage() {
+function RegisterPage() {
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50 px-4 sm:px-6 lg:px-8">
       <Card className="w-full max-w-md shadow-lg rounded-lg">
         <CardHeader className="space-y-1">
           <CardTitle className="text-2xl font-bold text-center">
-            Iniciar sesión
+            Crear cuenta
           </CardTitle>
           <CardDescription className="text-center">
-            Ingresa tus credenciales para acceder a tu cuenta
+            Completa el formulario para registrarte
           </CardDescription>
         </CardHeader>
 
         <CardContent className="grid gap-4">
+          <div className="grid gap-2">
+            <Label htmlFor="fullname">Nombre completo</Label>
+            <Input
+              id="fullname"
+              type="text"
+              placeholder="Tu nombre completo"
+              className="focus-visible:ring-2 focus-visible:ring-primary"
+            />
+          </div>
+
           <div className="grid gap-2">
             <Label htmlFor="email">Correo electrónico</Label>
             <Input
@@ -39,25 +49,30 @@ function LoginPage() {
             />
           </div>
 
-          <div className="flex items-center justify-between text-sm">
-            <div className="flex items-center">
-              <input
-                id="remember-me"
-                name="remember-me"
-                type="checkbox"
-                className="h-4 w-4 text-primary rounded border-gray-300 focus:ring-primary"
-              />
-              <label htmlFor="remember-me" className="ml-2 text-gray-600">
-                Recordarme
-              </label>
-            </div>
-            <a href="#" className="font-medium text-primary hover:text-primary/80">
-              ¿Olvidaste tu contraseña?
-            </a>
+          <div className="grid gap-2">
+            <Label htmlFor="confirm-password">Confirmar contraseña</Label>
+            <Input
+              id="confirm-password"
+              type="password"
+              placeholder="••••••••"
+              className="focus-visible:ring-2 focus-visible:ring-primary"
+            />
+          </div>
+
+          <div className="flex items-center text-sm">
+            <input
+              id="terms"
+              name="terms"
+              type="checkbox"
+              className="h-4 w-4 text-primary rounded border-gray-300 focus:ring-primary"
+            />
+            <label htmlFor="terms" className="ml-2 text-gray-600">
+              Acepto los <a href="#" className="text-primary hover:text-primary/80">términos y condiciones</a>
+            </label>
           </div>
 
           <Button className="w-full mt-2" type="submit">
-            Iniciar sesión
+            Registrarse
           </Button>
 
           <div className="relative">
@@ -66,7 +81,7 @@ function LoginPage() {
             </div>
             <div className="relative flex justify-center text-xs uppercase">
               <span className="bg-background px-2 text-muted-foreground">
-                O continúa con
+                O regístrate con
               </span>
             </div>
           </div>
@@ -88,15 +103,14 @@ function LoginPage() {
         </CardContent>
 
         <CardFooter className="flex justify-center text-sm text-muted-foreground">
-          ¿No tienes una cuenta?{' '}
-          <Link to="/auth/register" className="ml-1 font-medium text-primary hover:text-primary/80">
-            Regístrate
+          ¿Ya tienes una cuenta?{' '}
+          <Link to="/auth" className="ml-1 font-medium text-primary hover:text-primary/80">
+            Inicia sesión
           </Link>
         </CardFooter>
       </Card>
     </div>
-
   )
 }
 
-export default LoginPage
+export default RegisterPage

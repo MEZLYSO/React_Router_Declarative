@@ -26,7 +26,7 @@ function ChatPage() {
     {
       id: '1',
       name: 'Soporte Técnico',
-      avatar: 'https://github.com/shadcn.png',
+      avatar: '',
       status: 'online',
       lastMessage: '¿Necesitas ayuda con algo?'
     },
@@ -40,7 +40,7 @@ function ChatPage() {
     {
       id: '3',
       name: 'María García',
-      avatar: 'https://github.com/shadcn.png',
+      avatar: '',
       status: 'offline',
       lastMessage: 'Nos vemos mañana'
     }

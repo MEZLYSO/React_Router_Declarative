@@ -1,14 +1,10 @@
-import type { ReactNode } from "react"
+import { Outlet } from "react-router"
 
-interface LayoutProps {
-  children: ReactNode
-}
-
-function ChatLayout({ children }: LayoutProps) {
+function ChatLayout() {
 
   return (
     <>
-      {children}
+      <Outlet />
     </>
   )
 
