@@ -25,6 +25,7 @@ function AppRouter() {
           {/* <Route path='/auth' element={<Navigate to="/auth/login" />} /> */}
         </Route>
 
+
         {/* Chat */}
         <Route path='/chat' element={<Suspense
           fallback={
