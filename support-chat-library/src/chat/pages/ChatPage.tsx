@@ -20,7 +20,7 @@ type User = {
   lastMessage?: string
 }
 
-function ChatPage() {
+function chatPage() {
 
   const users: User[] = [
     {
@@ -215,4 +215,4 @@ function ChatPage() {
 
 }
 
-export default ChatPage
+export default chatPage

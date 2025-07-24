@@ -1,11 +1,11 @@
-import { BrowserRouter, Navigate, Route, Routes } from 'react-router'
 import { lazy, Suspense } from 'react'
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router'
 import AuthLayout from './auth/layout/AuthLayout'
 import LoginPage from './auth/pages/LoginPage'
 import RegisterPage from './auth/pages/RegisterPage'
 import ChatPage from './chat/pages/ChatPage'
-import { sleep } from './lib/sleep'
 import { Spinner } from './components/Spinner'
+import { sleep } from './lib/sleep'
 
 const ChatLayout = lazy(async () => {
   await sleep(1500);

@@ -1,6 +1,6 @@
 import { Outlet } from "react-router"
 
-function ChatLayout() {
+function chatLayout() {
 
   return (
     <>
@@ -10,4 +10,4 @@ function ChatLayout() {
 
 }
 
-export default ChatLayout
+export default chatLayout
