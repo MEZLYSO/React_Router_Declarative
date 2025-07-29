@@ -3,7 +3,6 @@ import { BrowserRouter, Navigate, Route, Routes } from 'react-router'
 import AuthLayout from './auth/layout/AuthLayout'
 import LoginPage from './auth/pages/LoginPage'
 import RegisterPage from './auth/pages/RegisterPage'
-import ChatPage from './chat/pages/ChatPage'
 import { Spinner } from './components/Spinner'
 import { sleep } from './lib/sleep'
 
@@ -11,6 +10,9 @@ const ChatLayout = lazy(async () => {
   await sleep(1500);
   return import('./chat/layout/ChatLayout')
 })
+
+const ChatPage = lazy(async () => import('./chat/pages/ChatPage'))
+const NoChatSelected = lazy(async () => import('./chat/pages/NoChatSelected'))
 
 function AppRouter() {
   return (
@@ -38,7 +40,20 @@ function AppRouter() {
           }>
           <ChatLayout />
         </Suspense>}>
-          <Route index element={<ChatPage />} />
+          <Route index element={
+            <Suspense
+              fallback={
+                <div className="fixed inset-0 bg-background/80 flex items-center justify-center z-50">
+                  <div className="flex flex-col items-center gap-4">
+                    <Spinner className="h-12 w-12 border-4" />
+                    <p className="text-muted-foreground">Cargando...</p>
+                  </div>
+                </div>
+              }
+            >
+              <ChatPage />
+            </Suspense>
+          } />
         </Route>
 
         {/* Redireccion automatica al entrar a la liga */}
